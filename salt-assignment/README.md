@@ -55,11 +55,12 @@ Failover Test
 
 
 ## Web Server Verification
-For **primary master** - 
 
 - Open your browser and navigate to: http://<minion-01-IP-address
- ![Primary Master](images/primary-master.png)
-For **secondary master** - 
+- 
+For **primary master** - 
 
-- Open your browser and navigate to: http://<minion-01-IP-address>
+ ![Primary Master](images/primary-master.png)
+For **secondary master** -
+
  ![Secondary Master](images/Secondary.png)
