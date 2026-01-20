@@ -1,0 +1,15 @@
+# /etc/salt/minion
+
+# List masters in preferred order (Primary first)
+master:
+  - <Primary_Master_IP_or_FQDN>  # e.g., salt-master or its IP
+  - <Secondary_Master_IP_or_FQDN> # e.g., secondary-master or its IP
+
+# Enable the minion to failover to the next master in the list if the current one is down
+master_type: failover
+
+# How often the minion checks if the current master is alive (in seconds)
+master_alive_interval: 60 
+
+# Optional: To switch back to the primary master once it's back online
+master_failback: True

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salt Master Failover Check</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .master-info { padding: 20px; border-radius: 8px; display: inline-block; }
+        .primary { background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .secondary { background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        h2 { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+    <h1>Minion ID: {{ salt['grains.get']('id') }}</h1>
+    
+    {% set current_master_address = salt['config.get']('master_ip') %}
+
+    {% if current_master_address == '192.168.64.11' %}
+        {% set master_class = 'primary' %}
+        {% set master_role = 'PRIMARY MASTER' %}
+    {% else %}
+        {% set master_class = 'secondary' %}
+        {% set master_role = 'SECONDARY (FAILOVER) MASTER' %}
+    {% endif %}
+
+    <div class="master-info {{ master_class }}">
+        <h2>MANAGEMENT STATUS</h2>
+        <p>This Minion is currently managed by the:</p>
+        
+        <h3>{{ master_role }}</h3>
+        
+        <p>Master IP Address: {{ current_master_address }}</p>
+    </div>
+
+</body>
+</html>
+

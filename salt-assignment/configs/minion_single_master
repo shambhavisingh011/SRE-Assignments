@@ -1,0 +1,3 @@
+master:
+  - <Primary_Master_IP_or_FQDN>  # e.g., salt-master or its IP
+
